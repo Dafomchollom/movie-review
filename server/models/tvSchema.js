@@ -13,7 +13,11 @@ const tvShows = mongoose.Schema({
         type: Number,
         default: 0,
         required: true,
-    }
+    },
+    postDate: {
+        type: Date,
+        default: Date.now
+    },
 })
 
 module.exports = mongoose.model('tvShows', tvShows)
