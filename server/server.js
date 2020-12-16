@@ -2,7 +2,9 @@ const { Nuxt, Builder } = require('nuxt')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const app = require('express')()
-
+const mongoose = require('mongoose')
+//use dotenv
+require('dotenv/config')
 // Body parser, to access `req.body`
 app.use(bodyParser.json())
 
@@ -46,6 +48,10 @@ if (!isProd) {
 }
 app.use(nuxt.render)
 // app.listen(5000)
+mongoose.connect(process.env.DB_CONNECTION,{ useUnifiedTopology: true,useNewUrlParser: true }, ()=>{
+  console.log('connected to DB')
+})
+// connect mongoose db
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`listening on port ${port} ...`))
 console.log('Server is listening on http://localhost:5000')
