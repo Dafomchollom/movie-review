@@ -29,7 +29,6 @@ router.post('/', async (req, res) => {
         console.log('error', error)
     }
     // res.send(req.body)
-
-  })
+})
 
 module.exports = router
