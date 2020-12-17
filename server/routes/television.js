@@ -12,6 +12,7 @@ router.get('/', async (req, res) => {
     try{
         const allMovies = await TvSchema.find()
         res.json(allMovies)
+        res.status(200)
     }catch(error){
         console.log('error', error)
     }
@@ -27,6 +28,7 @@ router.post('/', async (req, res) => {
     try{
         const savedPost = await post.save()
         res.json(savedPost)
+        res.status(200)
     }catch(error){
         console.log('error', error)
     }
